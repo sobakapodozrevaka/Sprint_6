@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
+import java.util.Collections;
 
 import java.util.List;
 
@@ -25,8 +26,9 @@ public class CatTest {
     @Test
     public void getFoodTest() throws Exception {
         Cat cat = new Cat(feline);
-        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
-        List<String> expected = List.of("Животные", "Птицы", "Рыба");
+        List<String> expectedFoodList = List.of("Животные", "Птицы", "Рыба");
+        Mockito.when(feline.eatMeat()).thenReturn(expectedFoodList);
+        List<String> expected = expectedFoodList;
         List<String> actual = cat.getFood();
         assertEquals("Некорректный результат теста", expected, actual);
     }

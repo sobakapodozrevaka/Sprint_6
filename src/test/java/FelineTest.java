@@ -21,11 +21,22 @@ public class FelineTest {
         assertEquals("Некорректный результат теста", expected, actual);
     }
 
+    //добавила проверку метода getKittens(n)
     @Test
-    public void getFoodTest() throws Exception {
+    public void getKittensCountTest() {
+        Feline feline = new Feline();
+        int expected = 5;
+        int actual = feline.getKittens(5);
+        assertEquals("Некорректный результат теста", expected, actual);
+    }
+
+    //поправила/добавила проверку метода eatMeat
+    @Test
+    public void eatMeatTest() throws Exception {
         Feline feline = new Feline();
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
         List<String> actual = feline.eatMeat();
         assertEquals("Некорректный результат теста", expected, actual);
     }
+
 }
